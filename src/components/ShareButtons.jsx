@@ -4,16 +4,6 @@ import PropTypes from 'prop-types';
 const ShareButtons = ({ answer }) => {
   const [copySuccess, setCopySuccess] = useState(false);
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(answer);
-      setCopySuccess(true);
-      setTimeout(() => setCopySuccess(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy text: ", err);
-    }
-  };
-
   const handleShare = async () => {
     if (navigator.share) {
       try {
