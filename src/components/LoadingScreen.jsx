@@ -2,27 +2,28 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types"; 
 
 export const LoadingScreen = ({ onComplete }) => {
+  const text1 = "Hey, I'm Helpmate, your AI assistant.";
+  const text2 = "How can I help you today?";
+  
   const [line1, setLine1] = useState("");
   const [line2, setLine2] = useState("");
 
-  const text1 = "Hey, I'm Helpmate, your AI assistant.";
-  const text2 = "How can I help you today?";
 
   useEffect(() => {
     let index1 = 0;
     let index2 = 0;
-
-    const interval1 = setInterval(() => {
-      setLine1(text1.substring(0, index1));
-      index1++;
-      if (index1 > text1.length) clearInterval(interval1);
-    }, 40);
 
     const interval2 = setInterval(() => {
       setLine2(text2.substring(0, index2));
       index2++;
       if (index2 > text2.length) clearInterval(interval2);
     }, 90); 
+
+    const interval1 = setInterval(() => {
+      setLine1(text1.substring(0, index1));
+      index1++;
+      if (index1 > text1.length) clearInterval(interval1);
+    }, 40);
 
     const maxDuration = Math.max(
       text1.length * 40,
